@@ -1,64 +1,104 @@
-import Image from "next/image";
+"use client";
+
+import { Search, ChevronRight } from "lucide-react";
+
+const programs = [
+  {
+    title: "Programa superior en Jurídico energético",
+    desc: "Normativa, contratos y claves legales del mercado energético.",
+  },
+  {
+    title: "Programa superior en Ventas de energía",
+    desc: "Captación, argumentario y cierre de contratos.",
+  },
+  {
+    title: "Programa superior en Autoconsumo",
+    desc: "Fotovoltaica, excedentes y batería virtual.",
+  },
+  {
+    title: "Programa superior en Operativa",
+    desc: "Altas, incidencias y gestión completa.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-[#F9FAFB] flex text-[#1F2937] font-sans">
+
+      {/* SIDEBAR */}
+      <aside className="w-[280px] bg-white border-r border-gray-200 px-10 py-12">
+        <h2 className="text-[18px] font-medium text-[#003B4F] mb-10 tracking-tight">
+          Filtrar programas
+        </h2>
+
+        <div className="relative mb-10">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <input
+            placeholder="Buscar programas"
+            className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-md text-[14px] focus:outline-none focus:border-[#003B4F]"
+          />
+        </div>
+
+        <div className="space-y-10 text-[14px]">
+          <div>
+            <p className="text-gray-400 uppercase tracking-[0.08em] text-[11px] mb-3">
+              Categoría
+            </p>
+            <ul className="space-y-2">
+              {["Todos", "Energía", "Autoconsumo", "Ventas"].map((item) => (
+                <li key={item} className="cursor-pointer text-gray-600 hover:text-[#003B4F]">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-gray-400 uppercase tracking-[0.08em] text-[11px] mb-3">
+              Nivel
+            </p>
+            <ul className="space-y-2">
+              {["Básico", "Intermedio", "Avanzado"].map((item) => (
+                <li key={item} className="cursor-pointer text-gray-600 hover:text-[#003B4F]">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      {/* MAIN */}
+      <main className="flex-1 px-16 py-14">
+
+        <div className="mb-16">
+          <h1 className="text-[42px] font-normal text-[#003B4F] mb-4 tracking-tight">
+            Programas
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-gray-400 max-w-xl text-[15px] leading-relaxed">
+            Formación diseñada para instaladores que quieren crecer en el sector energético con una propuesta profesional y clara.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-14 gap-y-16">
+          {programs.map((p, i) => (
+            <div key={i}>
+              <h3 className="text-[18px] font-medium text-[#003B4F] mb-3">
+                {p.title}
+              </h3>
+
+              <p className="text-gray-400 text-[14px] mb-6 max-w-[320px]">
+                {p.desc}
+              </p>
+
+              <button className="flex items-center text-[14px] text-[#003B4F] font-medium opacity-80 hover:opacity-100">
+                Solicitar información
+                <ChevronRight className="w-4 h-4 ml-1" />
+              </button>
+            </div>
+          ))}
         </div>
+
       </main>
     </div>
   );
