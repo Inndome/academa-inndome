@@ -1,81 +1,118 @@
 export default function Home() {
   return (
-    <div style={{ display: "flex", minHeight: "100vh", fontFamily: "Arial" }}>
+    <div style={{ fontFamily: "Arial, sans-serif", color: "#1a2e2f" }}>
 
-      {/* SIDEBAR */}
-      <aside style={{
-        width: "260px",
-        padding: "25px",
-        borderRight: "1px solid #eee",
-        background: "#fafafa"
+      {/* HEADER */}
+      <div style={{
+        padding: "20px 60px",
+        borderBottom: "1px solid #eee",
+        fontSize: "14px"
       }}>
-        <h3 style={{ marginBottom: "20px" }}>Filtrar programas</h3>
+        Academia Inndome
+      </div>
 
-        <input
-          placeholder="Buscar..."
-          style={{
-            width: "100%",
-            padding: "10px",
-            border: "1px solid #ddd",
-            borderRadius: "6px"
-          }}
-        />
+      {/* HERO */}
+      <div style={{
+        display: "flex",
+        padding: "80px 60px",
+        alignItems: "center",
+        gap: "60px"
+      }}>
 
-        <p style={{ marginTop: "20px" }}>Categoría</p>
-        <ul style={{ listStyle: "none", padding: 0 }}>
-          <li>Energía</li>
-          <li>Autoconsumo</li>
-          <li>Ventas</li>
-        </ul>
-      </aside>
-
-      {/* CONTENIDO */}
-      <main style={{ flex: 1, padding: "50px" }}>
-
-        <h1 style={{ fontSize: "40px", marginBottom: "10px" }}>
-          Academia Inndome
-        </h1>
-
-        <p style={{ color: "#666", marginBottom: "40px" }}>
-          Formación para instaladores que quieren crecer
-        </p>
-
+        {/* IZQUIERDA (SIMULACIÓN ESFERA) */}
         <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: "20px"
-        }}>
+          width: "350px",
+          height: "350px",
+          borderRadius: "50%",
+          background: "linear-gradient(135deg,#cfe3e4,#8fb8bb)",
+        }} />
 
-          <div style={card}>
-            <h3>Ventas de energía</h3>
-            <p>Aprende a captar y cerrar contratos</p>
-          </div>
+        {/* DERECHA TEXTO */}
+        <div style={{ maxWidth: "500px" }}>
+          <h1 style={{ fontSize: "38px", marginBottom: "20px" }}>
+            Formación para instaladores
+          </h1>
 
-          <div style={card}>
-            <h3>Autoconsumo</h3>
-            <p>Fotovoltaica, excedentes y batería virtual</p>
-          </div>
-
-          <div style={card}>
-            <h3>Operativa</h3>
-            <p>Altas, incidencias y gestión completa</p>
-          </div>
-
-          <div style={card}>
-            <h3>Jurídico energético</h3>
-            <p>Normativa y contratos del sector</p>
-          </div>
-
+          <p style={{ color: "#555", lineHeight: "1.6" }}>
+            Programas diseñados para profesionales del sector energético
+            que quieren crecer, captar clientes y gestionar mejor su negocio.
+          </p>
         </div>
 
-      </main>
+      </div>
+
+      {/* CATEGORÍAS */}
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        gap: "60px",
+        paddingBottom: "80px",
+        borderBottom: "1px solid #eee"
+      }}>
+        {categoria("Ventas")}
+        {categoria("Autoconsumo")}
+        {categoria("Operativa")}
+        {categoria("Jurídico")}
+      </div>
+
+      {/* PROGRAMAS */}
+      <div style={{ padding: "80px 60px" }}>
+
+        <h2 style={{ marginBottom: "40px" }}>
+          Programas disponibles
+        </h2>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+          {programa("Ventas de energía", "Aprende a captar y cerrar contratos")}
+          {programa("Autoconsumo", "Fotovoltaica y excedentes")}
+          {programa("Operativa", "Altas e incidencias")}
+          {programa("Jurídico energético", "Normativa del sector")}
+        </div>
+
+      </div>
+
     </div>
   );
 }
 
-const card = {
-  padding: "20px",
-  border: "1px solid #eee",
-  borderRadius: "8px",
-  background: "#fff"
-};
+/* COMPONENTE CATEGORÍA */
+function categoria(texto: string) {
+  return (
+    <div style={{ textAlign: "center", cursor: "pointer" }}>
+      <div style={{
+        width: "60px",
+        height: "60px",
+        borderRadius: "50%",
+        background: "#e6f0f1",
+        margin: "0 auto 10px"
+      }} />
+      <p>{texto}</p>
+    </div>
+  );
+}
+
+/* COMPONENTE PROGRAMA */
+function programa(titulo: string, desc: string) {
+  return (
+    <div style={{
+      display: "flex",
+      justifyContent: "space-between",
+      borderBottom: "1px solid #eee",
+      paddingBottom: "20px"
+    }}>
+      <div>
+        <h3 style={{ marginBottom: "5px" }}>{titulo}</h3>
+        <p style={{ color: "#666" }}>{desc}</p>
+      </div>
+
+      <button style={{
+        border: "1px solid #1a2e2f",
+        background: "transparent",
+        padding: "8px 16px",
+        cursor: "pointer"
+      }}>
+        Ver programa
+      </button>
+    </div>
+  );
+}
