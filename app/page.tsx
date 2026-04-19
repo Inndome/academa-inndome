@@ -1,39 +1,41 @@
 export default function Home() {
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", color: "#1a2e2f" }}>
-
-      {/* HEADER */}
-      <div style={{
-        padding: "20px 60px",
-        borderBottom: "1px solid #eee",
-        fontSize: "14px"
-      }}>
-        Academia Inndome
-      </div>
+    <div style={{
+      fontFamily: "Arial, sans-serif",
+      color: "#1f3a3b",
+      background: "#f9fbfb"
+    }}>
 
       {/* HERO */}
       <div style={{
         display: "flex",
-        padding: "80px 60px",
+        padding: "120px 80px",
         alignItems: "center",
-        gap: "60px"
+        gap: "80px"
       }}>
 
-        {/* IZQUIERDA (SIMULACIÓN ESFERA) */}
+        {/* ESFERA */}
         <div style={{
-          width: "350px",
-          height: "350px",
+          width: "420px",
+          height: "420px",
           borderRadius: "50%",
-          background: "linear-gradient(135deg,#cfe3e4,#8fb8bb)",
+          background: "radial-gradient(circle at 30% 30%, #cfe5e6, #7ea9ad)"
         }} />
 
-        {/* DERECHA TEXTO */}
-        <div style={{ maxWidth: "500px" }}>
-          <h1 style={{ fontSize: "38px", marginBottom: "20px" }}>
+        {/* TEXTO */}
+        <div style={{ maxWidth: "520px" }}>
+          <h1 style={{
+            fontSize: "42px",
+            fontWeight: "500",
+            marginBottom: "20px"
+          }}>
             Formación para instaladores
           </h1>
 
-          <p style={{ color: "#555", lineHeight: "1.6" }}>
+          <p style={{
+            color: "#5f7a7b",
+            lineHeight: "1.7"
+          }}>
             Programas diseñados para profesionales del sector energético
             que quieren crecer, captar clientes y gestionar mejor su negocio.
           </p>
@@ -45,28 +47,36 @@ export default function Home() {
       <div style={{
         display: "flex",
         justifyContent: "center",
-        gap: "60px",
-        paddingBottom: "80px",
-        borderBottom: "1px solid #eee"
+        gap: "70px",
+        paddingBottom: "100px"
       }}>
-        {categoria("Ventas")}
-        {categoria("Autoconsumo")}
-        {categoria("Operativa")}
-        {categoria("Jurídico")}
+        {cat("Ventas")}
+        {cat("Autoconsumo")}
+        {cat("Operativa")}
+        {cat("Jurídico")}
       </div>
 
       {/* PROGRAMAS */}
-      <div style={{ padding: "80px 60px" }}>
+      <div style={{
+        padding: "100px 80px",
+        borderTop: "1px solid #e6eeee"
+      }}>
 
-        <h2 style={{ marginBottom: "40px" }}>
+        <h2 style={{
+          fontSize: "20px",
+          marginBottom: "50px",
+          color: "#2f4f50"
+        }}>
           Programas disponibles
         </h2>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-          {programa("Ventas de energía", "Aprende a captar y cerrar contratos")}
-          {programa("Autoconsumo", "Fotovoltaica y excedentes")}
-          {programa("Operativa", "Altas e incidencias")}
-          {programa("Jurídico energético", "Normativa del sector")}
+        <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
+
+          {prog("Ventas de energía", "Aprende a captar y cerrar contratos")}
+          {prog("Autoconsumo", "Fotovoltaica y excedentes")}
+          {prog("Operativa", "Altas e incidencias")}
+          {prog("Jurídico energético", "Normativa del sector")}
+
         </div>
 
       </div>
@@ -75,40 +85,53 @@ export default function Home() {
   );
 }
 
-/* COMPONENTE CATEGORÍA */
-function categoria(texto: string) {
+/* CATEGORÍAS */
+function cat(text: string) {
   return (
-    <div style={{ textAlign: "center", cursor: "pointer" }}>
+    <div style={{ textAlign: "center" }}>
       <div style={{
-        width: "60px",
-        height: "60px",
+        width: "65px",
+        height: "65px",
         borderRadius: "50%",
-        background: "#e6f0f1",
-        margin: "0 auto 10px"
+        background: "#dfe9ea",
+        marginBottom: "12px"
       }} />
-      <p>{texto}</p>
+      <p style={{ fontSize: "14px", color: "#4b6667" }}>{text}</p>
     </div>
   );
 }
 
-/* COMPONENTE PROGRAMA */
-function programa(titulo: string, desc: string) {
+/* PROGRAMAS */
+function prog(title: string, desc: string) {
   return (
     <div style={{
       display: "flex",
       justifyContent: "space-between",
-      borderBottom: "1px solid #eee",
+      alignItems: "center",
+      borderBottom: "1px solid #e6eeee",
       paddingBottom: "20px"
     }}>
       <div>
-        <h3 style={{ marginBottom: "5px" }}>{titulo}</h3>
-        <p style={{ color: "#666" }}>{desc}</p>
+        <h3 style={{
+          fontWeight: "500",
+          marginBottom: "5px"
+        }}>
+          {title}
+        </h3>
+
+        <p style={{
+          color: "#6f8a8b",
+          fontSize: "14px"
+        }}>
+          {desc}
+        </p>
       </div>
 
       <button style={{
-        border: "1px solid #1a2e2f",
+        border: "1px solid #2f4f50",
         background: "transparent",
-        padding: "8px 16px",
+        padding: "8px 18px",
+        fontSize: "13px",
         cursor: "pointer"
       }}>
         Ver programa
