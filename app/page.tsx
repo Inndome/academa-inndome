@@ -2,53 +2,55 @@ export default function Home() {
   return (
     <div style={{
       fontFamily: "Arial, sans-serif",
-      color: "#1f3a3b",
-      background: "#f9fbfb"
+      background: "#f7f9f9",
+      color: "#243b3b"
     }}>
 
-      {/* HERO */}
+      {/* HERO GRID */}
       <div style={{
-        display: "flex",
-        padding: "120px 80px",
+        display: "grid",
+        gridTemplateColumns: "1.2fr 1fr",
         alignItems: "center",
-        gap: "80px"
+        padding: "120px 100px",
+        gap: "60px"
       }}>
 
-        {/* ESFERA */}
+        {/* CÍRCULO */}
         <div style={{
-          width: "420px",
-          height: "420px",
+          width: "480px",
+          height: "480px",
           borderRadius: "50%",
-          background: "radial-gradient(circle at 30% 30%, #cfe5e6, #7ea9ad)"
+          background: "#8faeb1",
+          marginLeft: "40px"
         }} />
 
         {/* TEXTO */}
-        <div style={{ maxWidth: "520px" }}>
+        <div>
           <h1 style={{
-            fontSize: "42px",
+            fontSize: "38px",
             fontWeight: "500",
-            marginBottom: "20px"
+            marginBottom: "15px"
           }}>
             Formación para instaladores
           </h1>
 
           <p style={{
-            color: "#5f7a7b",
-            lineHeight: "1.7"
+            color: "#5e7374",
+            lineHeight: "1.6",
+            maxWidth: "420px"
           }}>
-            Programas diseñados para profesionales del sector energético
-            que quieren crecer, captar clientes y gestionar mejor su negocio.
+            Programas diseñados para profesionales del sector energético que quieren crecer, captar clientes y gestionar mejor su negocio.
           </p>
         </div>
 
       </div>
 
-      {/* CATEGORÍAS */}
+      {/* ICONOS */}
       <div style={{
         display: "flex",
         justifyContent: "center",
-        gap: "70px",
-        paddingBottom: "100px"
+        gap: "60px",
+        marginBottom: "80px"
       }}>
         {cat("Ventas")}
         {cat("Autoconsumo")}
@@ -56,28 +58,23 @@ export default function Home() {
         {cat("Jurídico")}
       </div>
 
-      {/* PROGRAMAS */}
+      {/* LISTADO */}
       <div style={{
-        padding: "100px 80px",
-        borderTop: "1px solid #e6eeee"
+        padding: "0 100px 100px"
       }}>
 
-        <h2 style={{
-          fontSize: "20px",
-          marginBottom: "50px",
-          color: "#2f4f50"
+        <p style={{
+          marginBottom: "30px",
+          fontSize: "14px",
+          color: "#4a6061"
         }}>
           Programas disponibles
-        </h2>
+        </p>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
-
-          {prog("Ventas de energía", "Aprende a captar y cerrar contratos")}
-          {prog("Autoconsumo", "Fotovoltaica y excedentes")}
-          {prog("Operativa", "Altas e incidencias")}
-          {prog("Jurídico energético", "Normativa del sector")}
-
-        </div>
+        {prog("Ventas de energía", "Aprende a captar y cerrar contratos")}
+        {prog("Autoconsumo", "Fotovoltaica y excedentes")}
+        {prog("Operativa", "Altas e incidencias")}
+        {prog("Jurídico energético", "Normativa del sector")}
 
       </div>
 
@@ -85,54 +82,40 @@ export default function Home() {
   );
 }
 
-/* CATEGORÍAS */
 function cat(text: string) {
   return (
     <div style={{ textAlign: "center" }}>
       <div style={{
-        width: "65px",
-        height: "65px",
+        width: "60px",
+        height: "60px",
         borderRadius: "50%",
-        background: "#dfe9ea",
-        marginBottom: "12px"
+        background: "#d8e2e3",
+        marginBottom: "10px"
       }} />
-      <p style={{ fontSize: "14px", color: "#4b6667" }}>{text}</p>
+      <span style={{ fontSize: "13px", color: "#516a6b" }}>{text}</span>
     </div>
   );
 }
 
-/* PROGRAMAS */
 function prog(title: string, desc: string) {
   return (
     <div style={{
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      borderBottom: "1px solid #e6eeee",
-      paddingBottom: "20px"
+      padding: "20px 0",
+      borderTop: "1px solid #e3ecec"
     }}>
       <div>
-        <h3 style={{
-          fontWeight: "500",
-          marginBottom: "5px"
-        }}>
-          {title}
-        </h3>
-
-        <p style={{
-          color: "#6f8a8b",
-          fontSize: "14px"
-        }}>
-          {desc}
-        </p>
+        <strong style={{ fontWeight: "500" }}>{title}</strong>
+        <p style={{ fontSize: "13px", color: "#6b8485" }}>{desc}</p>
       </div>
 
       <button style={{
-        border: "1px solid #2f4f50",
+        border: "1px solid #2e4a4b",
         background: "transparent",
-        padding: "8px 18px",
-        fontSize: "13px",
-        cursor: "pointer"
+        padding: "6px 14px",
+        fontSize: "12px"
       }}>
         Ver programa
       </button>
