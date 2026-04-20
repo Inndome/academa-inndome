@@ -2,97 +2,148 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen bg-[#f5f8f8] text-[#1f3a3a]">
+    <div className="bg-[#f5f8f8] text-[#1e3a3a]">
 
-      {/* SIDEBAR */}
-      <aside className="w-[250px] border-r border-[#e4eeee] px-8 py-10">
-        <p className="text-[13px] mb-4 text-[#4c6667]">
-          Filtrar programas
-        </p>
+      {/* HEADER */}
+      <header className="border-b border-[#e4eeee]">
+        <div className="mx-auto w-[1120px] flex items-center justify-between py-6 text-[13px]">
+          <div className="font-medium tracking-[0.4px]">Academia Inndome</div>
 
-        <input
-          placeholder="Buscar..."
-          className="w-full border border-[#d9e3e3] px-3 py-2 mb-10 text-[13px]"
-        />
+          <nav className="flex gap-12 text-[#5f7b7c]">
+            <span className="hover:text-black cursor-pointer">Nosotros</span>
+            <span className="hover:text-black cursor-pointer">Cursos</span>
+            <span className="hover:text-black cursor-pointer">Programas</span>
+            <span className="hover:text-black cursor-pointer">Contacto</span>
+          </nav>
 
-        <p className="text-[12px] text-[#7b9697] mb-3">
-          Categoría
-        </p>
-
-        <div className="space-y-2 text-[14px] text-[#2c4a4b]">
-          <div>Energía</div>
-          <div>Autoconsumo</div>
-          <div>Ventas</div>
+          <button className="border border-[#2c4a4b] px-4 py-1 text-[12px] hover:bg-[#2c4a4b] hover:text-white transition">
+            Campus
+          </button>
         </div>
-      </aside>
+      </header>
 
-      {/* CONTENIDO */}
-      <main className="flex-1 flex justify-center">
+      {/* HERO */}
+      <section>
+        <div className="mx-auto w-[1120px] grid grid-cols-[600px_440px] gap-[80px] pt-[120px] pb-[100px] items-center">
 
-        <div className="w-[1100px]">
-
-          {/* HERO */}
-          <div className="flex items-center justify-between pt-28 pb-24">
-
-            {/* IMAGEN */}
-            <div className="w-[460px] opacity-90">
-              <Image
-                src="/hero.png"
-                alt="hero"
-                width={460}
-                height={460}
-                className="object-contain"
-              />
-            </div>
-
-            {/* TEXTO */}
-            <div className="max-w-[420px]">
-
-              <h1 className="text-[42px] font-light mb-4">
-                Academia Inndome
-              </h1>
-
-              <p className="text-[15px] text-[#6f8c8d] mb-10">
-                Formación para instaladores que quieren crecer
-              </p>
-
-              <div className="flex gap-12">
-                {cat("Ventas")}
-                {cat("Autoconsumo")}
-                {cat("Operativa")}
-                {cat("Jurídico")}
-              </div>
-
-            </div>
-
+          {/* VISUAL */}
+          <div className="flex justify-center">
+            <Image
+              src="/hero.png"
+              alt="hero"
+              width={560}
+              height={560}
+              className="opacity-85 object-contain"
+              priority
+            />
           </div>
 
-          {/* LISTADO */}
-          <div className="pb-20">
+          {/* COPY */}
+          <div>
+            <h1 className="text-[56px] leading-[1.08] font-light tracking-tight mb-6">
+              Fórmate para transformar tu negocio
+            </h1>
 
-            <p className="text-[12px] text-[#6f8c8d] mb-6">
-              Programas disponibles
+            <p className="text-[16px] leading-[1.7] text-[#6f8c8d] mb-16 max-w-[420px]">
+              Programas diseñados para profesionales del sector energético que quieren crecer, captar clientes y gestionar mejor su negocio.
             </p>
 
-            {prog("Ventas de energía", "Aprende a captar y cerrar contratos")}
-            {prog("Autoconsumo", "Fotovoltaica y excedentes")}
-            {prog("Operativa", "Altas e incidencias")}
-            {prog("Jurídico energético", "Normativa del sector")}
-
+            {/* CATEGORÍAS (ligeras, no cards) */}
+            <div className="flex gap-[56px]">
+              {cat("Ventas")}
+              {cat("Autoconsumo")}
+              {cat("Operativa")}
+              {cat("Jurídico")}
+            </div>
           </div>
 
         </div>
+      </section>
 
-      </main>
+      {/* PROGRAMAS */}
+      <section>
+        <div className="mx-auto w-[1120px] pb-[110px]">
+          <h2 className="text-[28px] font-light tracking-tight mb-12">
+            Descubre nuestros programas superiores
+          </h2>
+
+          {prog("Programa superior en Jurídico energético", "Especialízate en normativa y contratos del sector energético")}
+          {prog("Programa superior en Ventas", "Aprende a captar y cerrar contratos de forma efectiva")}
+          {prog("Programa superior en Autoconsumo", "Fotovoltaica, excedentes y batería virtual")}
+          {prog("Programa superior en Operativa", "Altas, incidencias y gestión completa")}
+        </div>
+      </section>
+
+      {/* TESTIMONIO */}
+      <section>
+        <div className="mx-auto w-[1120px] grid grid-cols-[260px_1fr] gap-[80px] items-center pb-[110px]">
+          <div className="w-[240px] h-[240px] bg-[#e2ebeb]" />
+
+          <div>
+            <h3 className="text-[26px] font-light leading-snug mb-6">
+              Descubre cómo nuestros cursos impulsan el crecimiento profesional
+            </h3>
+
+            <p className="text-[15px] leading-[1.7] text-[#6f8c8d] mb-5">
+              “Gracias a la formación he conseguido mejorar mi negocio y captar nuevos clientes.”
+            </p>
+
+            <p className="text-[13px] text-[#4f6768]">— Alumno Inndome</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACTO */}
+      <section className="bg-white">
+        <div className="mx-auto w-[720px] text-center py-[110px]">
+          <h3 className="text-[28px] font-light mb-6">
+            Te mantenemos informado
+          </h3>
+
+          <p className="text-[#6f8c8d] text-[15px] mb-12">
+            Déjanos tus datos y te contactaremos
+          </p>
+
+          <div className="grid grid-cols-3 gap-6">
+            <input className="border border-[#d9e3e3] p-3 text-[14px] focus:outline-none focus:border-black transition" placeholder="Nombre" />
+            <input className="border border-[#d9e3e3] p-3 text-[14px] focus:outline-none focus:border-black transition" placeholder="Email" />
+            <input className="border border-[#d9e3e3] p-3 text-[14px] focus:outline-none focus:border-black transition" placeholder="Mensaje" />
+          </div>
+
+          <button className="mt-10 border border-[#2c4a4b] px-8 py-2 text-[13px] hover:bg-[#2c4a4b] hover:text-white transition">
+            Enviar mensaje
+          </button>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-[#0f2f2f] text-white">
+        <div className="mx-auto w-[1120px] flex justify-between py-[80px] text-[13px]">
+          <div>
+            <p className="mb-3 font-medium">Academia Inndome</p>
+            <p>Barcelona</p>
+            <p>info@inndome.com</p>
+          </div>
+
+          <div>
+            <p className="mb-3 font-medium">Links</p>
+            <p>Contacto</p>
+            <p>Legal</p>
+          </div>
+        </div>
+      </footer>
+
     </div>
   );
 }
 
+/* COMPONENTES */
+
 function cat(text: string) {
   return (
-    <div className="text-center">
-      <div className="w-[48px] h-[48px] rounded-full bg-[#dfe7e7] mb-2 mx-auto" />
-      <div className="text-[13px] text-[#4f6768]">
+    <div className="text-center group cursor-pointer">
+      <div className="w-[48px] h-[48px] rounded-full bg-[#dfe7e7] mb-3 mx-auto group-hover:bg-[#2c4a4b] transition" />
+      <div className="text-[13px] text-[#5c7778] group-hover:text-black transition">
         {text}
       </div>
     </div>
@@ -101,21 +152,19 @@ function cat(text: string) {
 
 function prog(title: string, desc: string) {
   return (
-    <div className="flex justify-between items-center py-5 border-t border-[#e4eeee]">
-
+    <div className="flex items-center justify-between py-[22px] border-t border-[#e4eeee] group">
       <div>
-        <div className="text-[14px] font-medium">
+        <p className="text-[15px] font-medium group-hover:underline">
           {title}
-        </div>
-        <div className="text-[13px] text-[#6f8c8d]">
+        </p>
+        <p className="text-[14px] text-[#6f8c8d]">
           {desc}
-        </div>
+        </p>
       </div>
 
-      <button className="border border-[#2c4a4b] px-4 py-1 text-[12px] hover:bg-[#2c4a4b] hover:text-white transition">
-        Ver programa
+      <button className="border border-[#2c4a4b] px-4 py-[6px] text-[12px] group-hover:bg-[#2c4a4b] group-hover:text-white transition">
+        Solicita información
       </button>
-
     </div>
   );
 }
