@@ -2,20 +2,24 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen bg-[#f7f9f9] text-[#243b3b]">
+    <div className="flex min-h-screen bg-[#f5f8f8] text-[#1f3a3a]">
 
       {/* SIDEBAR */}
-      <aside className="w-[260px] border-r border-[#e6eeee] px-8 py-10">
-        <p className="text-sm mb-3">Filtrar programas</p>
+      <aside className="w-[250px] border-r border-[#e4eeee] px-8 py-10">
+        <p className="text-[13px] mb-4 text-[#4c6667]">
+          Filtrar programas
+        </p>
 
         <input
           placeholder="Buscar..."
-          className="w-full border border-gray-300 px-2 py-2 mb-8 text-sm"
+          className="w-full border border-[#d9e3e3] px-3 py-2 mb-10 text-[13px]"
         />
 
-        <p className="text-xs text-[#6b8485] mb-2">Categoría</p>
+        <p className="text-[12px] text-[#7b9697] mb-3">
+          Categoría
+        </p>
 
-        <div className="space-y-2 text-sm">
+        <div className="space-y-2 text-[14px] text-[#2c4a4b]">
           <div>Energía</div>
           <div>Autoconsumo</div>
           <div>Ventas</div>
@@ -25,34 +29,34 @@ export default function Home() {
       {/* CONTENIDO */}
       <main className="flex-1 flex justify-center">
 
-        <div className="w-[1150px]">
+        <div className="w-[1100px]">
 
           {/* HERO */}
-          <div className="flex items-center justify-between py-32">
+          <div className="flex items-center justify-between pt-28 pb-24">
 
-            {/* IMAGEN GRANDE */}
-            <div className="w-[520px] opacity-90">
+            {/* IMAGEN */}
+            <div className="w-[460px] opacity-90">
               <Image
                 src="/hero.png"
-                alt="visual"
-                width={520}
-                height={520}
+                alt="hero"
+                width={460}
+                height={460}
                 className="object-contain"
               />
             </div>
 
             {/* TEXTO */}
-            <div className="max-w-[460px]">
+            <div className="max-w-[420px]">
 
-              <h1 className="text-[44px] font-light mb-5">
+              <h1 className="text-[42px] font-light mb-4">
                 Academia Inndome
               </h1>
 
-              <p className="text-[16px] text-[#6b8485] mb-12 leading-relaxed">
+              <p className="text-[15px] text-[#6f8c8d] mb-10">
                 Formación para instaladores que quieren crecer
               </p>
 
-              <div className="flex gap-14">
+              <div className="flex gap-12">
                 {cat("Ventas")}
                 {cat("Autoconsumo")}
                 {cat("Operativa")}
@@ -64,9 +68,9 @@ export default function Home() {
           </div>
 
           {/* LISTADO */}
-          <div className="pb-24">
+          <div className="pb-20">
 
-            <p className="text-xs text-[#5e7374] mb-6">
+            <p className="text-[12px] text-[#6f8c8d] mb-6">
               Programas disponibles
             </p>
 
@@ -87,24 +91,28 @@ export default function Home() {
 function cat(text: string) {
   return (
     <div className="text-center">
-      <div className="w-[52px] h-[52px] rounded-full bg-[#dfe7e7] mb-3 mx-auto" />
-      <div className="text-[13px] text-[#4f6768]">{text}</div>
+      <div className="w-[48px] h-[48px] rounded-full bg-[#dfe7e7] mb-2 mx-auto" />
+      <div className="text-[13px] text-[#4f6768]">
+        {text}
+      </div>
     </div>
   );
 }
 
 function prog(title: string, desc: string) {
   return (
-    <div className="flex justify-between items-center py-6 border-t border-[#e6eeee]">
+    <div className="flex justify-between items-center py-5 border-t border-[#e4eeee]">
 
       <div>
-        <div className="font-medium text-[15px]">{title}</div>
-        <div className="text-[13px] text-[#6b8485]">
+        <div className="text-[14px] font-medium">
+          {title}
+        </div>
+        <div className="text-[13px] text-[#6f8c8d]">
           {desc}
         </div>
       </div>
 
-      <button className="border border-[#2e4a4b] px-4 py-1 text-[12px] hover:bg-[#2e4a4b] hover:text-white transition">
+      <button className="border border-[#2c4a4b] px-4 py-1 text-[12px] hover:bg-[#2c4a4b] hover:text-white transition">
         Ver programa
       </button>
 
