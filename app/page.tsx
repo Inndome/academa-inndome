@@ -4,7 +4,6 @@ export default function Home() {
 
       {/* SIDEBAR */}
       <aside className="w-[260px] border-r border-[#e6eeee] px-8 py-10">
-
         <p className="text-sm mb-3">Filtrar programas</p>
 
         <input
@@ -14,36 +13,33 @@ export default function Home() {
 
         <p className="text-xs text-[#6b8485] mb-2">Categoría</p>
 
-        <div className="space-y-2 text-sm text-[#243b3b]">
+        <div className="space-y-2 text-sm">
           <div>Energía</div>
           <div>Autoconsumo</div>
           <div>Ventas</div>
         </div>
-
       </aside>
 
       {/* CONTENIDO */}
-      <main className="flex-1">
+      <main className="flex-1 flex items-center justify-center">
 
-        {/* HERO */}
-        <div className="flex items-center justify-between px-28 py-32">
+        <div className="flex items-center gap-20">
 
-          {/* CÍRCULO */}
-          <div className="w-[380px] h-[380px] rounded-full bg-[#8faeb1]" />
+          {/* CÍRCULO (ARREGLADO) */}
+          <div className="w-[260px] h-[260px] rounded-full bg-[#8faeb1]" />
 
           {/* TEXTO */}
-          <div className="max-w-[500px]">
+          <div className="max-w-[420px]">
 
-            <h1 className="text-[44px] font-light tracking-tight mb-4">
+            <h1 className="text-[42px] font-light mb-4">
               Academia Inndome
             </h1>
 
-            <p className="text-[16px] text-[#6b8485] mb-10 leading-relaxed">
+            <p className="text-[15px] text-[#6b8485] mb-10">
               Formación para instaladores que quieren crecer
             </p>
 
-            {/* ICONOS */}
-            <div className="flex gap-12">
+            <div className="flex gap-10">
               {cat("Ventas")}
               {cat("Autoconsumo")}
               {cat("Operativa")}
@@ -51,20 +47,6 @@ export default function Home() {
             </div>
 
           </div>
-
-        </div>
-
-        {/* LISTADO */}
-        <div className="px-28 pb-24">
-
-          <p className="text-xs text-[#5e7374] mb-6">
-            Programas disponibles
-          </p>
-
-          {prog("Ventas de energía", "Aprende a captar y cerrar contratos")}
-          {prog("Autoconsumo", "Fotovoltaica y excedentes")}
-          {prog("Operativa", "Altas e incidencias")}
-          {prog("Jurídico energético", "Normativa del sector")}
 
         </div>
 
@@ -76,27 +58,8 @@ export default function Home() {
 function cat(text: string) {
   return (
     <div className="text-center">
-      <div className="w-[55px] h-[55px] rounded-full bg-[#d8e2e3] mb-3 mx-auto" />
-      <div className="text-[13px] text-[#4f6768]">{text}</div>
-    </div>
-  );
-}
-
-function prog(title: string, desc: string) {
-  return (
-    <div className="flex justify-between items-center py-6 border-t border-[#e6eeee]">
-
-      <div>
-        <div className="font-medium text-[15px]">{title}</div>
-        <div className="text-[13px] text-[#6b8485]">
-          {desc}
-        </div>
-      </div>
-
-      <button className="border border-[#2e4a4b] px-4 py-1 text-[12px] hover:bg-[#2e4a4b] hover:text-white transition">
-        Ver programa
-      </button>
-
+      <div className="w-[45px] h-[45px] rounded-full bg-[#d8e2e3] mb-2 mx-auto" />
+      <div className="text-xs">{text}</div>
     </div>
   );
 }
