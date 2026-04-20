@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <div className="flex min-h-screen bg-[#f7f9f9] text-[#243b3b]">
@@ -21,30 +23,57 @@ export default function Home() {
       </aside>
 
       {/* CONTENIDO */}
-      <main className="flex-1 flex items-center justify-center">
+      <main className="flex-1 flex justify-center">
 
-        <div className="flex items-center gap-20">
+        <div className="w-[1150px]">
 
-          {/* CÍRCULO (ARREGLADO) */}
-          <div className="w-[260px] h-[260px] rounded-full bg-[#8faeb1]" />
+          {/* HERO */}
+          <div className="flex items-center justify-between py-32">
 
-          {/* TEXTO */}
-          <div className="max-w-[420px]">
+            {/* IMAGEN GRANDE */}
+            <div className="w-[520px] opacity-90">
+              <Image
+                src="/hero.png"
+                alt="visual"
+                width={520}
+                height={520}
+                className="object-contain"
+              />
+            </div>
 
-            <h1 className="text-[42px] font-light mb-4">
-              Academia Inndome
-            </h1>
+            {/* TEXTO */}
+            <div className="max-w-[460px]">
 
-            <p className="text-[15px] text-[#6b8485] mb-10">
-              Formación para instaladores que quieren crecer
+              <h1 className="text-[44px] font-light mb-5">
+                Academia Inndome
+              </h1>
+
+              <p className="text-[16px] text-[#6b8485] mb-12 leading-relaxed">
+                Formación para instaladores que quieren crecer
+              </p>
+
+              <div className="flex gap-14">
+                {cat("Ventas")}
+                {cat("Autoconsumo")}
+                {cat("Operativa")}
+                {cat("Jurídico")}
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* LISTADO */}
+          <div className="pb-24">
+
+            <p className="text-xs text-[#5e7374] mb-6">
+              Programas disponibles
             </p>
 
-            <div className="flex gap-10">
-              {cat("Ventas")}
-              {cat("Autoconsumo")}
-              {cat("Operativa")}
-              {cat("Jurídico")}
-            </div>
+            {prog("Ventas de energía", "Aprende a captar y cerrar contratos")}
+            {prog("Autoconsumo", "Fotovoltaica y excedentes")}
+            {prog("Operativa", "Altas e incidencias")}
+            {prog("Jurídico energético", "Normativa del sector")}
 
           </div>
 
@@ -58,8 +87,27 @@ export default function Home() {
 function cat(text: string) {
   return (
     <div className="text-center">
-      <div className="w-[45px] h-[45px] rounded-full bg-[#d8e2e3] mb-2 mx-auto" />
-      <div className="text-xs">{text}</div>
+      <div className="w-[52px] h-[52px] rounded-full bg-[#dfe7e7] mb-3 mx-auto" />
+      <div className="text-[13px] text-[#4f6768]">{text}</div>
+    </div>
+  );
+}
+
+function prog(title: string, desc: string) {
+  return (
+    <div className="flex justify-between items-center py-6 border-t border-[#e6eeee]">
+
+      <div>
+        <div className="font-medium text-[15px]">{title}</div>
+        <div className="text-[13px] text-[#6b8485]">
+          {desc}
+        </div>
+      </div>
+
+      <button className="border border-[#2e4a4b] px-4 py-1 text-[12px] hover:bg-[#2e4a4b] hover:text-white transition">
+        Ver programa
+      </button>
+
     </div>
   );
 }
