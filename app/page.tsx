@@ -1,6 +1,4 @@
-import Image from "next/image";
-
-export default function Home() {
+ export default function Home() {
   return (
     <main className="flex min-h-screen bg-[#f5f7f6] text-[#2f4f4f]">
       
@@ -28,14 +26,12 @@ export default function Home() {
         {/* HERO */}
         <div className="flex items-center justify-between">
 
-          {/* IMAGEN */}
-          <div className="w-[520px] h-[520px] flex items-center justify-center">
-            <Image
-              src="/globe.svg"
+          {/* IMAGEN (AHORA FUNCIONA SEGURO) */}
+          <div className="w-[600px] h-[600px] flex items-center justify-center">
+            <img
+              src="/globo.png"
               alt="Globo"
-              width={520}
-              height={520}
-              priority
+              className="w-full h-full object-contain"
             />
           </div>
 
