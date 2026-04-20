@@ -1,87 +1,49 @@
 export default function Home() {
   return (
-    <div style={{
-      fontFamily: "Arial, sans-serif",
-      background: "#f7f9f9",
-      color: "#243b3b",
-      display: "flex"
-    }}>
+    <div className="flex min-h-screen bg-[#f7f9f9] text-[#243b3b]">
 
-      {/* SIDEBAR IZQUIERDA */}
-      <div style={{
-        width: "260px",
-        padding: "40px 30px",
-        borderRight: "1px solid #e6eeee",
-        minHeight: "100vh"
-      }}>
+      {/* SIDEBAR */}
+      <aside className="w-[260px] border-r border-[#e6eeee] px-8 py-10">
 
-        <p style={{ fontSize: "14px", marginBottom: "10px" }}>
-          Filtrar programas
-        </p>
+        <p className="text-sm mb-3">Filtrar programas</p>
 
         <input
           placeholder="Buscar..."
-          style={{
-            width: "100%",
-            padding: "8px",
-            border: "1px solid #ddd",
-            marginBottom: "30px"
-          }}
+          className="w-full border border-gray-300 px-2 py-2 mb-8 text-sm"
         />
 
-        <p style={{ fontSize: "13px", color: "#6b8485" }}>
-          Categoría
-        </p>
+        <p className="text-xs text-[#6b8485] mb-2">Categoría</p>
 
-        <div style={{ marginTop: "10px", lineHeight: "2" }}>
+        <div className="space-y-2 text-sm text-[#243b3b]">
           <div>Energía</div>
           <div>Autoconsumo</div>
           <div>Ventas</div>
         </div>
 
-      </div>
+      </aside>
 
       {/* CONTENIDO */}
-      <div style={{ flex: 1 }}>
+      <main className="flex-1">
 
         {/* HERO */}
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "80px",
-          padding: "100px"
-        }}>
+        <div className="flex items-center justify-between px-28 py-32">
 
-          <div style={{
-            width: "420px",
-            height: "420px",
-            borderRadius: "50%",
-            background: "#8faeb1"
-          }} />
+          {/* CÍRCULO */}
+          <div className="w-[380px] h-[380px] rounded-full bg-[#8faeb1]" />
 
-          <div>
-            <h1 style={{
-              fontSize: "38px",
-              fontWeight: "400",
-              marginBottom: "15px"
-            }}>
+          {/* TEXTO */}
+          <div className="max-w-[500px]">
+
+            <h1 className="text-[44px] font-light tracking-tight mb-4">
               Academia Inndome
             </h1>
 
-            <p style={{
-              fontSize: "15px",
-              color: "#5e7374",
-              maxWidth: "420px"
-            }}>
+            <p className="text-[16px] text-[#6b8485] mb-10 leading-relaxed">
               Formación para instaladores que quieren crecer
             </p>
 
             {/* ICONOS */}
-            <div style={{
-              display: "flex",
-              gap: "40px",
-              marginTop: "40px"
-            }}>
+            <div className="flex gap-12">
               {cat("Ventas")}
               {cat("Autoconsumo")}
               {cat("Operativa")}
@@ -93,13 +55,9 @@ export default function Home() {
         </div>
 
         {/* LISTADO */}
-        <div style={{ padding: "0 100px 80px" }}>
+        <div className="px-28 pb-24">
 
-          <p style={{
-            fontSize: "13px",
-            marginBottom: "20px",
-            color: "#5e7374"
-          }}>
+          <p className="text-xs text-[#5e7374] mb-6">
             Programas disponibles
           </p>
 
@@ -110,53 +68,35 @@ export default function Home() {
 
         </div>
 
-      </div>
+      </main>
     </div>
   );
 }
 
 function cat(text: string) {
   return (
-    <div style={{ textAlign: "center" }}>
-      <div style={{
-        width: "50px",
-        height: "50px",
-        borderRadius: "50%",
-        background: "#d8e2e3",
-        marginBottom: "8px"
-      }} />
-      <div style={{ fontSize: "12px" }}>{text}</div>
+    <div className="text-center">
+      <div className="w-[55px] h-[55px] rounded-full bg-[#d8e2e3] mb-3 mx-auto" />
+      <div className="text-[13px] text-[#4f6768]">{text}</div>
     </div>
   );
 }
 
 function prog(title: string, desc: string) {
   return (
-    <div style={{
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      padding: "20px 0",
-      borderTop: "1px solid #e6eeee"
-    }}>
+    <div className="flex justify-between items-center py-6 border-t border-[#e6eeee]">
+
       <div>
-        <div style={{ fontWeight: "500" }}>{title}</div>
-        <div style={{
-          fontSize: "13px",
-          color: "#6b8485"
-        }}>
+        <div className="font-medium text-[15px]">{title}</div>
+        <div className="text-[13px] text-[#6b8485]">
           {desc}
         </div>
       </div>
 
-      <button style={{
-        border: "1px solid #2e4a4b",
-        background: "transparent",
-        padding: "6px 12px",
-        fontSize: "12px"
-      }}>
+      <button className="border border-[#2e4a4b] px-4 py-1 text-[12px] hover:bg-[#2e4a4b] hover:text-white transition">
         Ver programa
       </button>
+
     </div>
   );
 }
